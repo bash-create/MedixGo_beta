@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>MedixGO - Главная</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <!-- Google Font: Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome для иконок -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      --primary-100: #0072FF;
+      --primary-200: #6aa0ff;
+      --primary-300: #e1ffff;
+      --accent-100: #4ABDAC;
+      --accent-200: #005e51;
+      --text-100: #333333;
+      --text-200: #5c5c5c;
+      --bg-100: #F0F6FD;
+      --bg-200: #e6ecf3;
+      --bg-300: #bdc3ca;
+      --white: #FFFFFF;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    body {
+      background-color: var(--bg-100);
+      color: var(--text-100);
+      overflow-x: hidden;
+    }
+    
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--primary-100);
+      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      transition: all 0.4s ease;
+    }
+    
+    header:hover {
+      box-shadow: 0 6px 25px rgba(0, 114, 255, 0.3);
+    }
+
+    /* Стилизация скроллбара */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-100);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--primary-200);
+      border-radius: 10px;
+      border: 3px solid var(--bg-100);
+    }
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-200) var(--bg-100);
+      scroll-behavior: smooth;
+    }
+    
+    /* Логотип */
+    #logo {
+      width: 60px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    #logo:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Навигация */
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--white);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+    
+    /* Языки (справа) */
+    .lang-switch {
+      display: flex;
+      gap: 0.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 15px;
+      border-radius: 50px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-btn:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    
+    .lang-btn.active {
+      opacity: 1;
+      text-decoration: none;
+      position: relative;
+    }
+    
+    .lang-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background-color: var(--white);
+    }
+
+    /* Основной контейнер */
+    main {
+      padding: 40px 20px; 
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+    
+    section {
+      margin-bottom: 80px;
+      padding: 20px;
+      border-radius: 15px;
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-100);
+      position: relative;
+      display: inline-block;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background: var(--accent-100);
+      border-radius: 3px;
+    }
+    
+    section p,
+    section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-200);
+      margin-top: 1.5rem;
+    }
+    
+    /* Стилизация списка целей */
+    ul.goals-list {
+      display: inline-block;
+      text-align: left;
+      margin-top: 1.5rem;
+      list-style: none;
+    }
+    
+    ul.goals-list li {
+      margin-bottom: 15px;
+      padding-left: 28px;
+      position: relative;
+    }
+    
+    ul.goals-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-100);
+      box-shadow: 0 0 0 4px rgba(74, 189, 172, 0.2);
+    }
+
+    /* Слайдер сервисов */
+    .services-slider {
+      width: 100%;
+      max-width: 1000px;
+      margin: 40px auto 0;
+      padding: 20px 0;
+      position: relative;
+    }
+    
+    .swiper-slide {
+      background: var(--bg-200);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      height: auto;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .swiper-slide:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background: white;
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary-100);
+      margin-bottom: 15px;
+    }
+    
+    .service-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-100);
+    }
+    
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--text-200);
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--primary-100);
+      background: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
+    }
+    
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      opacity: 1;
+    }
+    
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: var(--primary-100);
+    }
+    
+    /* Видео контейнер */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+    
+    .video-container:hover {
+      transform: scale(1.01);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border-radius: 15px;
+    }
+
+    /* Контакты */
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary-300), var(--bg-100));
+      padding: 40px 20px;
+      border-radius: 15px;
+    }
+    
+    .contact-section h2 {
+      color: var(--primary-100);
+    }
+    
+    /* Кнопки контактов (иконки) */
+    .contact-btn {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: none;
+      color: var(--white);
+      background: var(--primary-100);
+      transition: all 0.4s ease;
+      margin: 8px;
+      box-shadow: 0 8px 20px rgba(0, 114, 255, 0.2);
+    }
+    
+    .contact-btn:hover {
+      background: var(--accent-100);
+      color: var(--white);
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(74, 189, 172, 0.3);
+    }
+    
+    .contact-btn i {
+      font-size: 1.5rem;
+    }
+    
+    .contact-label {
+      margin-top: 10px;
+      font-weight: 500;
+      color: var(--text-100);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-btn:hover + .contact-label {
+      color: var(--accent-100);
+      transform: translateY(-3px);
+    }
+
+    /* Футер */
+    footer {
+      background: var(--primary-100);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 40px;
+      position: relative;
+    }
+    
+    /* Волнистый верх футера */
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%230072FF'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+    }
+    
+    /* Нижняя часть футера */
+    .bottom-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .footer-address {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    
+    .bottom-nav-links {
+      display: flex;
+      gap: 2rem;
+      margin: 15px 0;
+    }
+    
+    .bottom-nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 10px;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .bottom-nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--white);
+      transition: width 0.3s ease;
+    }
+    
+    .bottom-nav-links a:hover {
+      opacity: 1;
+    }
+    
+    .bottom-nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .footer-copy {
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+    
+    /* Анимированная кнопка наверх */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-100);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.2);
+      z-index: 99;
+    }
+    
+    .scroll-top.visible {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
+    
+    .scroll-top:hover {
+      opacity: 1;
+      background: var(--accent-100);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(74, 189, 172, 0.3);
+    }
+    
+    /* Медиа запросы для адаптивности */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .lang-switch {
+        margin-top: 15px;
+      }
+      
+      section h2 {
+        font-size: 1.8rem;
+      }
+      
+      .services-slider {
+        padding: 10px;
+      }
+      
+      .contact-btn {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .nav-links {
+        gap: 0.8rem;
+      }
+      
+      .contact-btn {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .contact-btn i {
+        font-size: 1.2rem;
+      }
+    }
+    
+    /* Анимация пульсации для кнопок */
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 114, 255, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(0, 114, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 114, 255, 0);
+      }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="d-flex align-items-center gap-3">
+      <img src="Logo.png" alt="MedixGO Logo" id="logo" />
+      <ul class="nav-links">
+        <li><a href="#home" id="navHome"></a></li>
+        <li><a href="#services" id="navServices"></a></li>
+        <li><a href="#video" id="navVideo"></a></li>
+        <li><a href="#contact" id="navContact"></a></li>
+      </ul>
+    </div>
+    <!-- Языки справа в шапке -->
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
+      <button class="lang-btn" onclick="changeLang('kz')">KZ</button>
+      <button class="lang-btn" onclick="changeLang('en')">EN</button>
+    </div>
+  </header>
+
+  <!-- Контент -->
+  <main>
+    <!-- Главная -->
+    <section id="home" data-aos="fade-up">
+      <!-- Заголовок "Главная" -->
+      <h2 id="mainTitle"></h2>
+      <!-- Основной параграф -->
+      <p id="mainParagraph"></p>
+
+      <!-- Заголовок "Цели проекта" (центрированный) -->
+      <h2 id="projectGoalsTitle" style="margin-top: 2.5rem;" data-aos="fade-up"></h2>
+
+      <ul class="goals-list" data-aos="fade-up" data-aos-delay="100">
+        <li id="goal1"></li>
+        <li id="goal2"></li>
+        <li id="goal3"></li>
+        <li id="goal4"></li>
+      </ul>
+    </section>
+    
+    <!-- Новая секция: Сервисы (слайдер) -->
+    <section id="services" data-aos="fade-up">
+      <h2 id="servicesTitle"></h2>
+      
+      <div class="services-slider swiper">
+        <div class="swiper-wrapper">
+          <!-- Слайд 1 -->
+          <div class="swiper-slide" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <i class="fas fa-syringe"></i>
+            </div>
+            <h3 class="service-title" id="service1Title"></h3>
+            <p class="service-desc" id="service1Desc"></p>
+          </div>
+          
+          <!-- Слайд 2 -->
+          <div class="swiper-slide" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <h3 class="service-title" id="service2Title"></h3>
+            <p class="service-desc" id="service2Desc"></p>
+          </div>
+          
+          <!-- Слайд 3 -->
+          <div class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3 class="service-title" id="service3Title"></h3>
+            <p class="service-desc" id="service3Desc"></p>
+          </div>
+          
+          <!-- Слайд 4 -->
+          <div class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-stethoscope"></i>
+            </div>
+            <h3 class="service-title" id="service4Title"></h3>
+            <p class="service-desc" id="service4Desc"></p>
+          </div>
+        </div>
+        
+        <!-- Добавляем пагинацию -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- Добавляем навигацию -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    <!-- Видео -->
+    <section id="video" class="py-5" data-aos="fade-up">
+      <h2 id="videoTitle"></h2>
+      <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+        <iframe
+          id="videoFrame"
+          width="100%"
+          height="450"
+          src=""
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
+      <h2 id="contactTitle"></h2>
+
+      <!-- Блок с иконками контактов -->
+      <div class="row justify-content-center mt-4">
+        <div class="col-12 col-md-10">
+          <div class="d-flex flex-wrap justify-content-center">
+            <!-- Email -->
+            <div class="d-flex flex-column align-items-center m-3" data-aos="zoom-in" data-aos-delay="100">
+              <a
+                href="mailto:support@medixgo.kz"
+                class="contact-btn pulse"
+                target="_blank"
+              >
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <span class="contact-label">Email</span>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="d-flex flex-column align-items-center m-3" data-aos="zoom-in" data-aos-delay="200">
+              <a
+                href="https://wa.me/77716430037"
+                class="contact-btn"
+                target="_blank"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <span class="contact-label">WhatsApp</span>
+            </div>
+
+            <!-- Telegram -->
+            <div class="d-flex flex-column align-items-center m-3" data-aos="zoom-in" data-aos-delay="300">
+              <a
+                href="https://t.me/+77716430037"
+                class="contact-btn"
+                target="_blank"
+              >
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+              <span class="contact-label">Telegram</span>
+            </div>
+
+            <!-- Telegram Bot -->
+            <div class="d-flex flex-column align-items-center m-3" data-aos="zoom-in" data-aos-delay="400">
+              <a
+                href="https://t.me/MedixGO_bot"
+                class="contact-btn"
+                target="_blank"
+              >
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+              <span class="contact-label">Telegram Bot</span>
+            </div>
+
+            <!-- Instagram -->
+            <div class="d-flex flex-column align-items-center m-3" data-aos="zoom-in" data-aos-delay="500">
+              <a
+                href="https://instagram.com/medixgo.kz"
+                class="contact-btn"
+                target="_blank"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <span class="contact-label">Instagram</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <div class="bottom-nav">
+      <p class="footer-address" id="footerAddress"></p>
+      <div class="bottom-nav-links">
+        <a href="politika.html" id="footerPolicy"></a>
+        <a href="licenziya.html" id="footerLicense"></a>
+      </div>
+      <p class="footer-copy" id="footerCopy"></p>
+    </div>
+  </footer>
+  
+  <!-- Кнопка наверх -->
+  <div class="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+  <script>
+    // Инициализация AOS анимаций
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true
+      });
+      
+      // Инициализация Swiper слайдера
+      const servicesSwiper = new Swiper('.services-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          992: {
+            slidesPerView: 3,
+          }
+        }
+      });
+      
+      // Скрипт для кнопки наверх
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+      });
+      
+      scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Словарь переводов для RU, KZ, EN с добавленными новыми элементами
+    const translations = {
+      ru: {
+        // Шапка
+        navHome: "Главная",
+        navServices: "Услуги",
+        navVideo: "Видео",
+        navContact: "Контакты",
+        // Главная секция
+        mainTitle: "MedixGO - Медицинская помощь на дому",
+        mainParagraph: `MedixGO – это инновационное мобильное приложение, предназначенное для соединения пациентов,
+нуждающихся в медицинской помощи на дому (уколы, перевязки, базовые медицинские 
+процедуры), с квалифицированным медперсоналом. Приложение предлагает удобную 
+платформу для поиска, бронирования и оплаты услуг медицинского персонала,
+а также предоставляет возможность специалистам зарабатывать, работая в удобное время.`,
+        projectGoalsTitle: "Цели проекта",
+        goal1: "Обеспечить доступность квалифицированной медицинской помощи на дому.",
+        goal2: "Создать возможность для медицинского персонала получать дополнительный доход.",
+        goal3: "Упростить процесс поиска и оплаты услуг.",
+        goal4: "Повысить качество медицинских услуг за счет системы отзывов.",
+        // Услуги (слайдер)
+        servicesTitle: "Наши услуги",
+        service1Title: "Инъекции и капельницы",
+        service1Desc: "Внутри",
+        service1Desc: "Внутримышечные, внутривенные инъекции и капельницы на дому, выполняемые квалифицированными медсестрами.",
+        service2Title: "Перевязки и обработка ран",
+        service2Desc: "Профессиональный уход за ранами, включая перевязки, обработку швов и дренажей.",
+        service3Title: "Диагностика на дому",
+        service3Desc: "Базовая диагностика, включая измерение давления, уровня сахара в крови и другие показатели.",
+        service4Title: "Консультации специалистов",
+        service4Desc: "Консультации медицинских специалистов на дому для пациентов с ограниченной мобильностью.",
+        // Видео
+        videoTitle: "Подробнее о приложении",
+        videoSrc: "https://www.youtube.com/embed/dyO8YV84Izw",
+        // Заголовок "Связаться с нами"
+        contactTitle: "Связаться с нами",
+        // Футер
+        footerAddress: `ТОО «MedixGO»
+Казахстан, Карагандинская область, г. Караганда,
+ул. Московская, дом 11, кв.4, индекс M02A1X4`,
+        footerPolicy: "Политика конфиденциальности",
+        footerLicense: "Лицензионное соглашение",
+        footerCopy: "© 2025 MedixGO",
+      },
+      kz: {
+        navHome: "Басты бет",
+        navServices: "Қызметтер",
+        navVideo: "Бейне",
+        navContact: "Байланыс",
+        mainTitle: "MedixGO - Үйде медициналық көмек",
+        mainParagraph: `MedixGO – бұл үйде медициналық көмекке мұқтаж науқастарды (егулер, таңулар, негізгі 
+медициналық процедуралар) білікті медицина мамандарымен байланыстыруға арналған 
+инновациялық мобильді қосымша. Қосымша медициналық персоналды іздеу, брондау және қызметтерді 
+төлеу үшін ыңғайлы платформаны ұсынады, сондай-ақ мамандарға қолайлы уақытта 
+жұмыс істеп, табыс табуға мүмкіндік береді.`,
+        projectGoalsTitle: "Жобаның мақсаттары",
+        goal1: "Үйде білікті медициналық көмектің қолжетімділігін қамтамасыз ету.",
+        goal2: "Медицина мамандарына қосымша табыс табу мүмкіндігін жасау.",
+        goal3: "Қызметтерді іздеу мен төлеу үдерісін оңайлату.",
+        goal4: "Пікірлер жүйесі арқылы медициналық қызметтердің сапасын арттыру.",
+        // Услуги (слайдер)
+        servicesTitle: "Біздің қызметтер",
+        service1Title: "Инъекциялар мен тамшылатқыштар",
+        service1Desc: "Бұлшықет ішіне, тамыр ішіне инъекциялар және тамшылатқыштар, білікті мейірбикелер жүргізеді.",
+        service2Title: "Жараларды байлау және өңдеу",
+        service2Desc: "Жараларға кәсіби күтім, тігіс пен дренаждарды өңдеуді қоса.",
+        service3Title: "Үйде диагностика",
+        service3Desc: "Қан қысымын, қандағы қант деңгейін және басқа көрсеткіштерді өлшеуді қоса негізгі диагностика.",
+        service4Title: "Мамандардың кеңестері",
+        service4Desc: "Қозғалысы шектелген пациенттер үшін үйде медициналық мамандардың кеңестері.",
+        videoTitle: "Қосымша туралы толығырақ",
+        videoSrc: "https://www.youtube.com/embed/m74WTJ7pifA",
+        contactTitle: "Бізбен байланысу",
+        footerAddress: `"MedixGO" ЖШС
+Қазақстан, Қарағанды облысы, Қарағанды қ.,
+Мәскеу көшесі, 11-үй, 4-пәтер, M02A1X4`,
+        footerPolicy: "Құпиялық саясаты",
+        footerLicense: "Лицензиялық келісім",
+        footerCopy: "© 2025 MedixGO",
+      },
+      en: {
+        navHome: "Home",
+        navServices: "Services",
+        navVideo: "Video",
+        navContact: "Contact",
+        mainTitle: "MedixGO - Home Medical Care",
+        mainParagraph: `MedixGO is an innovative mobile application designed to connect patients who need home medical care
+(injections, dressings, basic medical procedures) with qualified medical personnel. 
+The application offers a convenient platform to search, book, and pay for medical services, 
+and also provides an opportunity for specialists to earn by working at a convenient time.`,
+        projectGoalsTitle: "Project Goals",
+        goal1: "Provide access to qualified home healthcare.",
+        goal2: "Enable medical staff to earn additional income.",
+        goal3: "Simplify the process of searching and paying for services.",
+        goal4: "Improve the quality of medical services through a feedback system.",
+        // Services (slider)
+        servicesTitle: "Our Services",
+        service1Title: "Injections & IV Therapy",
+        service1Desc: "Intramuscular, intravenous injections and drips at home, performed by qualified nurses.",
+        service2Title: "Wound Care & Dressing",
+        service2Desc: "Professional wound care, including dressing changes, suture and drainage care.",
+        service3Title: "Home Diagnostics",
+        service3Desc: "Basic diagnostics including blood pressure, blood sugar level measurement and other indicators.",
+        service4Title: "Specialist Consultations",
+        service4Desc: "Medical specialist consultations at home for patients with limited mobility.",
+        videoTitle: "More about the application",
+        videoSrc: "https://www.youtube.com/embed/dyO8YV84Izw",
+        contactTitle: "Contact us",
+        footerAddress: `MedixGO LLP
+Kazakhstan, Karaganda Region, Karaganda,
+Moskovskaya St. 11, apt.4, index M02A1X4`,
+        footerPolicy: "Privacy Policy",
+        footerLicense: "License Agreement",
+        footerCopy: "© 2025 MedixGO",
+      }
+    };
+
+    function changeLang(lang) {
+      // Сохраняем выбранный язык в localStorage
+      localStorage.setItem('preferredLang', lang);
+
+      // Удаляем класс active со всех кнопок
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      // Активируем кнопку текущего языка
+      const btn = document.querySelector(`.lang-btn[onclick="changeLang('${lang}')"]`);
+      if(btn) btn.classList.add('active');
+
+      // Достаем нужный объект
+      const t = translations[lang];
+
+      // Шапка
+      document.getElementById("navHome").textContent = t.navHome;
+      document.getElementById("navServices").textContent = t.navServices;
+      document.getElementById("navVideo").textContent = t.navVideo;
+      document.getElementById("navContact").textContent = t.navContact;
+
+      // Главная
+      document.getElementById("mainTitle").textContent = t.mainTitle;
+      document.getElementById("mainParagraph").textContent = t.mainParagraph;
+      document.getElementById("projectGoalsTitle").textContent = t.projectGoalsTitle;
+      document.getElementById("goal1").textContent = t.goal1;
+      document.getElementById("goal2").textContent = t.goal2;
+      document.getElementById("goal3").textContent = t.goal3;
+      document.getElementById("goal4").textContent = t.goal4;
+      
+      // Услуги
+      document.getElementById("servicesTitle").textContent = t.servicesTitle;
+      document.getElementById("service1Title").textContent = t.service1Title;
+      document.getElementById("service1Desc").textContent = t.service1Desc;
+      document.getElementById("service2Title").textContent = t.service2Title;
+      document.getElementById("service2Desc").textContent = t.service2Desc;
+      document.getElementById("service3Title").textContent = t.service3Title;
+      document.getElementById("service3Desc").textContent = t.service3Desc;
+      document.getElementById("service4Title").textContent = t.service4Title;
+      document.getElementById("service4Desc").textContent = t.service4Desc;
+
+      // Видео
+      document.getElementById("videoTitle").textContent = t.videoTitle;
+      document.getElementById("videoFrame").src = t.videoSrc;
+
+      // Контакты
+      document.getElementById("contactTitle").textContent = t.contactTitle;
+
+      // Футер
+      document.getElementById("footerAddress").textContent = t.footerAddress;
+      document.getElementById("footerPolicy").textContent = t.footerPolicy;
+      document.getElementById("footerLicense").textContent = t.footerLicense;
+      document.getElementById("footerCopy").textContent = t.footerCopy;
+
+      console.log(`Язык переключён на ${lang}`);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Проверяем, сохранён ли язык в localStorage
+      const savedLang = localStorage.getItem('preferredLang');
+      if (savedLang) {
+        changeLang(savedLang);
+      } else {
+        changeLang('ru');
+      }
+    });
+  </script>
+</body>
+</html>
