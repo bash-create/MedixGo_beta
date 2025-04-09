@@ -30,17 +30,25 @@
 
   <style>
     :root {
-      --primary-100: #0072FF;
-      --primary-200: #6aa0ff;
-      --primary-300: #e1ffff;
-      --accent-100: #4ABDAC;
-      --accent-200: #005e51;
-      --text-100: #333333;
-      --text-200: #5c5c5c;
-      --bg-100: #F0F6FD;
-      --bg-200: #e6ecf3;
-      --bg-300: #bdc3ca;
+      --primary-100: #2B6CB0;
+      --primary-200: #4299E1;
+      --primary-300: #BEE3F8;
+      --accent-100: #38B2AC;
+      --accent-200: #285E61;
+      --text-100: #2D3748;
+      --text-200: #718096;
+      --bg-100: #F7FAFC;
+      --bg-200: #EDF2F7;
+      --bg-300: #E2E8F0;
       --white: #FFFFFF;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+      --radius-sm: 0.2rem;
+      --radius-md: 0.375rem;
+      --radius-lg: 0.5rem;
+      --radius-xl: 1rem;
     }
     
     * {
@@ -58,20 +66,18 @@
     }
     
     header {
-      position: sticky;
+      position: fixed;
+      width: 100%;
       top: 0;
       z-index: 999;
-      background: var(--primary-100);
-      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      transition: all 0.4s ease;
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      padding: 0.8rem 0;
+      transition: all 0.3s ease;
     }
     
     header:hover {
-      box-shadow: 0 6px 25px rgba(0, 114, 255, 0.3);
+      box-shadow: 0 6px 25px rgba(100, 181, 246, 0.3);
     }
 
     /* Стилизация скроллбара */
@@ -97,41 +103,53 @@
     
     /* Логотип */
     #logo {
-      width: 60px;
+      width: 120px;
       height: auto;
       transition: transform 0.3s ease;
+      margin-left: 60px;
     }
     
     #logo:hover {
       transform: scale(1.1);
     }
-    
+    .navbar-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
     /* Навигация */
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
-      margin: 0;
+      flex-direction: row;
+      margin: 20px;
       padding: 0;
     }
     
     .nav-links li a {
       text-decoration: none;
-      color: var(--white);
-      font-weight: 600;
+      color: var(--text-100);
+      font-weight: 500;
       font-size: 1rem;
       position: relative;
-      padding: 5px 0;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links li a:hover {
+      color: var(--primary-100);
     }
     
     .nav-links li a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -2px;
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--white);
+      background-color: var(--primary-100);
       transition: width 0.3s ease;
     }
     
@@ -142,50 +160,44 @@
     /* Языки (справа) */
     .lang-switch {
       display: flex;
-      gap: 0.8rem;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 8px 15px;
-      border-radius: 50px;
-      backdrop-filter: blur(5px);
+      flex-direction: row;
+      justify-content: right;
+      align-items: right;
+      gap: 0.5rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 10px;
+      margin: 20px;
     }
     
     .lang-btn {
       background: none;
       border: none;
-      color: var(--white);
-      font-weight: 600;
+      color: var(--text-200);
+      font-weight: 500;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
       opacity: 0.7;
       transition: all 0.3s ease;
+      padding: 0.2rem 0.6rem;
     }
     
     .lang-btn:hover {
       opacity: 1;
-      transform: translateY(-2px);
     }
     
     .lang-btn.active {
       opacity: 1;
-      text-decoration: none;
-      position: relative;
-    }
-    
-    .lang-btn.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 25%;
-      width: 50%;
-      height: 2px;
-      background-color: var(--white);
+      color: var(--primary-100);
+      background: var(--white);
+      border-radius: 50px;
+      box-shadow: var(--shadow-sm);
     }
 
     /* Основной контейнер */
     main {
       padding: 40px 20px; 
       max-width: 1200px;
-      margin: auto;
+      margin: 80px auto 0;
       text-align: center;
     }
     
@@ -236,11 +248,15 @@
     ul.goals-list {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       margin-top: 1.5rem;
       list-style: none;
-      padding: 0;
+      padding: 0 1rem; 
+      width: 100%;
+      max-width: 800px; 
+      margin-left: auto;
+      margin-right: auto;
     }
     
     ul.goals-list li {
@@ -256,9 +272,9 @@
       content: '';
       width: 10px;
       height: 10px;
-      background-color: var(--accent-100);
+      background-color: #3333FF;
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(74, 189, 172, 0.2);
+      box-shadow: 0 0 0 4px rgba(3, 54, 87, 0.2);
       flex-shrink: 0;
     }
 
@@ -358,7 +374,7 @@
 
     /* Контакты */
     .contact-section {
-      background: linear-gradient(135deg, var(--primary-300), var(--bg-100));
+      background: #FFFFFF;
       padding: 40px 20px;
       border-radius: 15px;
     }
@@ -519,42 +535,36 @@
     }
     
     /* Медиа запросы для адаптивности */
-    @media (max-width: 768px) {
-      header {
+    @media (max-width: 992px) {
+      .navbar-container {
         flex-direction: column;
-        padding: 15px;
+        padding: 1rem;
       }
       
-      .lang-switch {
-        margin-top: 15px;
+      .logo-container {
+        margin-bottom: 1rem;
       }
       
-      section h2 {
-        font-size: 1.8rem;
+      .nav-links {
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       
-      .services-slider {
-        padding: 10px;
+      .hero {
+        padding-top: 10rem;
       }
-      
-      .contact-btn {
-        width: 50px;
-        height: 50px;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
       }
     }
     
     @media (max-width: 576px) {
-      .nav-links {
-        gap: 0.8rem;
-      }
-      
-      .contact-btn {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .contact-btn i {
-        font-size: 1.2rem;
+      .hero {
+        padding: 8rem 1rem 3rem;
       }
     }
     
@@ -634,25 +644,127 @@
     .form-button i {
       font-size: 1.2rem;
     }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-300), var(--bg-100));
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1000;
+    }
+
+    .hamburger-line {
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-100);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hamburger-menu {
+        display: flex;
+      }
+      
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .mobile-menu.active {
+        right: 0;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 0 20px 0;
+      }
+      
+      .nav-links li {
+        margin: 10px 0;
+      }
+      
+      .lang-switch {
+        margin: 0;
+        justify-content: center;
+      }
+      
+      /* Hamburger Animation */
+      .hamburger-menu.active .hamburger-line:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      
+      .hamburger-menu.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger-menu.active .hamburger-line:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Шапка -->
   <header>
-    <div class="d-flex align-items-center gap-3">
-      <img src="Logo.png" alt="MedixGO Logo" id="logo" />
-      <ul class="nav-links">
-        <li><a href="#home" id="navHome"></a></li>
-        <li><a href="#services" id="navServices"></a></li>
-        <li><a href="#video" id="navVideo"></a></li>
-        <li><a href="#contact" id="navContact"></a></li>
-      </ul>
-    </div>
-    <!-- Языки справа в шапке -->
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
-      <button class="lang-btn" onclick="changeLang('kz')">KZ</button>
-      <button class="lang-btn" onclick="changeLang('en')">EN</button>
+    <div class="navbar-container">
+      <div class="logo-container">
+        <img src="Logo.png" alt="MedixGO Logo" id="logo" />
+      </div>
+      
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <div class="mobile-menu">
+        <ul class="nav-links">
+          <li><a href="#home" id="navHome"></a></li>
+          <li><a href="#services" id="navServices"></a></li>
+          <li><a href="#video" id="navVideo"></a></li>
+          <li><a href="#contact" id="navContact"></a></li>
+        </ul>
+        
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
+          <button class="lang-btn" onclick="changeLang('kz')">KZ</button>
+          <button class="lang-btn" onclick="changeLang('en')">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -871,9 +983,11 @@
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        speed: 800,
         autoplay: {
           delay: 5000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true
         },
         pagination: {
           el: '.swiper-pagination',
@@ -890,7 +1004,12 @@
           992: {
             slidesPerView: 3,
           }
-        }
+        },
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true
       });
       
       // Скрипт для кнопки наверх
@@ -1099,7 +1218,32 @@ Moskovskaya St. 11, apt.4, index M02A1X4`,
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Проверяем, сохранён ли язык в localStorage
+      // Hamburger Menu Functionality
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        });
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        }
+      });
+      
+      // Check saved language preference
       const savedLang = localStorage.getItem('preferredLang');
       if (savedLang) {
         changeLang(savedLang);
