@@ -234,28 +234,32 @@
     
     /* Стилизация списка целей */
     ul.goals-list {
-      display: inline-block;
-      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       margin-top: 1.5rem;
       list-style: none;
+      padding: 0;
     }
     
     ul.goals-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 15px;
-      padding-left: 28px;
+      text-align: center;
       position: relative;
     }
     
     ul.goals-list li::before {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 10px;
+      height: 10px;
       background-color: var(--accent-100);
+      border-radius: 50%;
       box-shadow: 0 0 0 4px rgba(74, 189, 172, 0.2);
+      flex-shrink: 0;
     }
 
     /* Слайдер сервисов */
@@ -570,6 +574,66 @@
     .pulse {
       animation: pulse 2s infinite;
     }
+
+    /* Form Section Styles */
+    .form-section {
+      background: var(--white);
+      padding: 40px 20px;
+      border-radius: 15px;
+      margin-bottom: 80px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    
+    .form-content {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-icon {
+      font-size: 3rem;
+      color: var(--primary-100);
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .form-icon:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .form-description {
+      color: var(--text-200);
+      margin: 15px 0 25px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .form-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-100);
+      color: var(--white);
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.2);
+    }
+
+    .form-button:hover {
+      background: var(--accent-100);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(74, 189, 172, 0.3);
+      color: var(--white);
+    }
+
+    .form-button i {
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -602,7 +666,7 @@
       <p id="mainParagraph"></p>
 
       <!-- Заголовок "Цели проекта" (центрированный) -->
-      <h2 id="projectGoalsTitle" style="margin-top: 2.5rem;" data-aos="fade-up"></h2>
+      <h2 id="projectGoalsTitle" style="margin-top: 2.5rem; margin-bottom: 1rem;" data-aos="fade-up"></h2>
 
       <ul class="goals-list" data-aos="fade-up" data-aos-delay="100">
         <li id="goal1"></li>
@@ -678,6 +742,21 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
+      </div>
+    </section>
+
+    <!-- Google Form Section -->
+    <section id="form" class="form-section" data-aos="fade-up">
+      <div class="form-content">
+        <i class="fas fa-clipboard-list form-icon"></i>
+        <h2 id="formTitle"></h2>
+        <p id="formDescription" class="form-description"></p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGyEHGmFfK4bBWyRhy97jt0-jlhhS-7FzjOBAIdp2k8RIhag/viewform" 
+           target="_blank" 
+           class="form-button">
+          <i class="fas fa-external-link-alt"></i>
+          <span id="formButtonText"></span>
+        </a>
       </div>
     </section>
 
@@ -876,6 +955,9 @@
         footerPolicy: "Политика конфиденциальности",
         footerLicense: "Лицензионное соглашение",
         footerCopy: "© 2025 MedixGO",
+        formTitle: "Анкета медсестры/медбрата",
+        formDescription: "Заполните форму, чтобы присоединиться к нашей команде медицинских специалистов",
+        formButtonText: "Заполнить анкету",
       },
       kz: {
         navHome: "Басты бет",
@@ -912,6 +994,9 @@
         footerPolicy: "Құпиялық саясаты",
         footerLicense: "Лицензиялық келісім",
         footerCopy: "© 2025 MedixGO",
+        formTitle: "Мейірбике/мейірбике сауалнамасы",
+        formDescription: "Біздің медициналық мамандар тобына қосылу үшін форманы толтырыңыз",
+        formButtonText: "Сауалнаманы толтырыңыз",
       },
       en: {
         navHome: "Home",
@@ -947,6 +1032,9 @@ Moskovskaya St. 11, apt.4, index M02A1X4`,
         footerPolicy: "Privacy Policy",
         footerLicense: "License Agreement",
         footerCopy: "© 2025 MedixGO",
+        formTitle: "Nurse Application Form",
+        formDescription: "Fill out the form to join our team of medical professionals",
+        formButtonText: "Fill out the form",
       }
     };
 
@@ -1001,6 +1089,11 @@ Moskovskaya St. 11, apt.4, index M02A1X4`,
       document.getElementById("footerPolicy").textContent = t.footerPolicy;
       document.getElementById("footerLicense").textContent = t.footerLicense;
       document.getElementById("footerCopy").textContent = t.footerCopy;
+
+      // Form
+      document.getElementById("formTitle").textContent = t.formTitle;
+      document.getElementById("formDescription").textContent = t.formDescription;
+      document.getElementById("formButtonText").textContent = t.formButtonText;
 
       console.log(`Язык переключён на ${lang}`);
     }
