@@ -842,6 +842,88 @@
     .animated-float {
       animation: float 6s ease-in-out infinite;
     }
+
+    /* Опрос секция */
+    .survey-section {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      padding: 80px 0;
+      border-radius: 30px;
+      margin: 40px 0;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .survey-section:before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      top: -150px;
+      right: -150px;
+    }
+
+    .survey-section:after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      bottom: -100px;
+      left: -100px;
+    }
+    
+    .survey-section h2 {
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .survey-section p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .survey-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: white;
+      color: var(--primary);
+      border-radius: 50%;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .survey-button:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      color: var(--primary);
+    }
+
+    .survey-button i {
+      font-size: 2.5rem;
+    }
   </style>
 </head>
 <body>
@@ -889,7 +971,7 @@
       </div>
       
       <div class="hero-image animated-float">
-        <img src="medixGo.png" alt="MedixGO App Screenshot" />
+        <img src="image1.png" alt="MedixGO App Screenshot" />
       </div>
     </section>
 
@@ -946,6 +1028,17 @@
         <div class="play-button-overlay" id="play-video">
           <i class="fas fa-play"></i>
         </div>
+      </div>
+    </section>
+
+    <!-- Опрос -->
+    <section id="survey" class="survey-section">
+      <h2 id="surveyTitle">Анкета медсестры/медбрата</h2>
+      <p id="surveyText">Присоединяйтесь к команде MedixGO! Заполните анкету, чтобы стать частью нашего сообщества медицинских специалистов.</p>
+      <div class="survey-button-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGyEHGmFfK4bBWyRhy97jt0-jlhhS-7FzjOBAIdp2k8RIhag/viewform" target="_blank" class="survey-button" id="showSurveyBtn" title="Заполнить анкету">
+          <i class="fas fa-clipboard-check"></i>
+        </a>
       </div>
     </section>
     
@@ -1137,6 +1230,9 @@
         addressText: "Казахстан, г. Караганда, ул. Московская, 11, кв.4",
         workTime: "Пн-Пт: 9:00 - 18:00",
         footerCopy: "© 2025 MedixGO. Все права защищены.",
+        surveyTitle: "Анкета медсестры/медбрата",
+        surveyText: "Присоединяйтесь к команде MedixGO! Заполните анкету, чтобы стать частью нашего сообщества медицинских специалистов.",
+        surveyButtonTitle: "Заполнить анкету",
       },
       kz: {
         navHome: "Басты бет",
@@ -1176,6 +1272,9 @@
         addressText: "Қазақстан, Қарағанды қ., Мәскеу көшесі, 11, 4-пәтер",
         workTime: "Дс-Жм: 9:00 - 18:00",
         footerCopy: "© 2025 MedixGO. Барлық құқықтар қорғалған.",
+        surveyTitle: "Медбике/медбрат анкетасы",
+        surveyText: "MedixGO тобына қосылыңыз! Медицина мамандары қоғамының бір бөлігі болу үшін анкетаны толтырыңыз.",
+        surveyButtonTitle: "Анкетаны толтыру",
       },
       en: {
         navHome: "Home",
@@ -1214,10 +1313,17 @@ and also provides an opportunity for specialists to earn by working at a conveni
         addressText: "Kazakhstan, Karaganda, Moskovskaya St. 11, apt.4",
         workTime: "Mon-Fri: 9:00 AM - 6:00 PM",
         footerCopy: "© 2025 MedixGO. All rights reserved.",
+        surveyTitle: "Nurse/Medical Staff Application",
+        surveyText: "Join the MedixGO team! Fill out the application to become part of our community of medical professionals.",
+        surveyButtonTitle: "Fill Application",
       }
     };
 
+    // Добавляем переменную для хранения текущего языка
+    let currentLang = 'ru';
+
     function changeLang(lang) {
+      currentLang = lang;
       // Сохраняем выбранный язык в localStorage
       localStorage.setItem('preferredLang', lang);
 
@@ -1274,6 +1380,11 @@ and also provides an opportunity for specialists to earn by working at a conveni
       document.getElementById("addressText").textContent = t.addressText;
       document.getElementById("workTime").textContent = t.workTime;
       document.getElementById("footerCopy").textContent = t.footerCopy;
+
+      // Опрос
+      document.getElementById("surveyTitle").textContent = t.surveyTitle;
+      document.getElementById("surveyText").textContent = t.surveyText;
+      document.getElementById("showSurveyBtn").title = t.surveyButtonTitle;
 
       console.log(`Язык переключён на ${lang}`);
     }
