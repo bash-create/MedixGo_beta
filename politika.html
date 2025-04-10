@@ -228,7 +228,8 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s;
-      margin-bottom: 30px;
+      margin-bottom: 1em;
+      margin-top: 1em;
     }
 
     .back-button:hover {
@@ -326,7 +327,7 @@
 
   <!-- Основной контент -->
   <main>
-    <a href="index.html" class="back-button" id="backButton">
+    <a href="updated-medixgo-website.html" class="back-button" id="backButton">
       <i class="fas fa-arrow-left"></i>
       <span id="backButtonText">Назад на главную</span>
     </a>
@@ -545,7 +546,7 @@
       
       // Обновляем заголовок страницы
       document.title = `MedixGO - ${translations[lang].policyTitle}`;
-      
+
       // Снимаем класс active со всех кнопок
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
       // Активируем кнопку выбранного языка
@@ -605,7 +606,7 @@
         list.appendChild(li);
       });
     }
-    
+
     // При загрузке страницы
     document.addEventListener('DOMContentLoaded', () => {
       // Проверяем, сохранён ли язык в localStorage
