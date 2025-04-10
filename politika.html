@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>MedixGO - Политика конфиденциальности</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <!-- Google Font: Nunito + Montserrat -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Montserrat:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome для иконок -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    :root {
+      --primary: #2471CC;
+      --primary-light: #5B9AE8;
+      --primary-dark: #1A5195;
+      --secondary: #38BEC9;
+      --accent: #56B870;
+      --accent-light: #8EEDB0;
+      --background: #F8FAFD;
+      --card-bg: #FFFFFF;
+      --text-dark: #272E3A;
+      --text-medium: #556175;
+      --text-light: #7E8A9C;
+      --white: #FFFFFF;
+      --shadow: 0 8px 24px rgba(36, 113, 204, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text-dark);
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Декоративные элементы */
+    .bg-shape {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .bg-shape-1 {
+      top: -100px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%;
+      opacity: 0.3;
+    }
+
+    .bg-shape-2 {
+      bottom: 20%;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+      opacity: 0.2;
+    }
+    
+    .bg-dots {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(var(--text-light) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.1;
+      z-index: -2;
+    }
+
+    /* Шапка */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 5%;
+      transition: all 0.3s ease;
+    }
+
+    /* Логотип */
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo {
+      width: 120px;
+      height: auto;
+      transition: transform 0.3s;
+    }
+
+    .logo-container:hover #logo {
+      transform: scale(1.05);
+    }
+
+    /* Языковые переключатели */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-medium);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .lang-btn:hover {
+      color: var(--primary);
+      background: rgba(36, 113, 204, 0.1);
+    }
+
+    .lang-btn.active {
+      color: var(--primary);
+      background: rgba(36, 113, 204, 0.15);
+    }
+
+    .lang-separator {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Основной контент */
+    main {
+      padding-top: 100px;
+      max-width: 1000px;
+      margin: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: relative;
+    }
+
+    .policy-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .policy-container h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    .policy-container h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      margin: 30px 0 15px;
+      font-size: 1.5rem;
+    }
+
+    .policy-container p {
+      color: var(--text-medium);
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .policy-container ul {
+      list-style-type: none;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .policy-container ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      color: var(--text-medium);
+    }
+
+    .policy-container ul li:before {
+      content: '•';
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 25px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-bottom: 30px;
+    }
+
+    .back-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .back-button i {
+      font-size: 1.1rem;
+    }
+
+    /* Футер */
+    footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      width: 40px;
+      height: auto;
+    }
+
+    .footer-logo h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      color: white;
+      margin: 0;
+    }
+
+    .footer-logo h3 span {
+      color: #56B870;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .policy-container {
+        padding: 30px 20px;
+      }
+
+      .policy-container h1 {
+        font-size: 1.8rem;
+      }
+
+      .policy-container h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Декоративные элементы фона -->
+  <div class="bg-dots"></div>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+
+  <!-- Шапка -->
+  <header id="site-header">
+    <div class="logo-container">
+      <img src="Logo.png" alt="MedixGO Logo" id="logo" />
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="changeLang('ru')">RUS</button>
+      <span class="lang-separator">|</span>
+      <button class="lang-btn" onclick="changeLang('kz')">KAZ</button>
+      <span class="lang-separator">|</span>
+      <button class="lang-btn" onclick="changeLang('en')">ENG</button>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main>
+    <a href="index.html" class="back-button" id="backButton">
+      <i class="fas fa-arrow-left"></i>
+      <span id="backButtonText">Назад на главную</span>
+    </a>
+
+    <div class="policy-container">
+      <h1 id="policyTitle">Политика конфиденциальности</h1>
+      
+      <p id="lastUpdated">Последнее обновление: 1 марта 2024 г.</p>
+
+      <h2 id="introTitle">1. Введение</h2>
+      <p id="introText">MedixGO уважает вашу конфиденциальность и стремится защитить ваши персональные данные. Эта политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу информацию.</p>
+
+      <h2 id="dataCollectionTitle">2. Сбор информации</h2>
+      <p id="dataCollectionIntro">Мы собираем следующие типы информации:</p>
+      <ul id="dataCollectionList">
+        <li>Персональные данные (имя, контактная информация)</li>
+        <li>Медицинская информация, необходимая для оказания услуг</li>
+        <li>Информация об устройстве и использовании приложения</li>
+      </ul>
+
+      <h2 id="dataUsageTitle">3. Использование информации</h2>
+      <p id="dataUsageIntro">Мы используем собранную информацию для:</p>
+      <ul id="dataUsageList">
+        <li>Предоставления медицинских услуг</li>
+        <li>Улучшения работы приложения</li>
+        <li>Связи с вами по вопросам обслуживания</li>
+        <li>Обеспечения безопасности</li>
+      </ul>
+
+      <h2 id="dataProtectionTitle">4. Защита данных</h2>
+      <p id="dataProtectionIntro">Мы применяем современные методы защиты для сохранения ваших данных в безопасности, включая:</p>
+      <ul id="dataProtectionList">
+        <li>Шифрование данных</li>
+        <li>Регулярное обновление систем безопасности</li>
+        <li>Ограниченный доступ к персональным данным</li>
+      </ul>
+
+      <h2 id="userRightsTitle">5. Права пользователей</h2>
+      <p id="userRightsIntro">Вы имеете право:</p>
+      <ul id="userRightsList">
+        <li>Получить доступ к своим данным</li>
+        <li>Исправить неточные данные</li>
+        <li>Удалить свои данные</li>
+        <li>Отозвать согласие на обработку данных</li>
+      </ul>
+
+      <h2 id="contactsTitle">6. Контакты</h2>
+      <p id="contactsIntro">По вопросам конфиденциальности обращайтесь:</p>
+      <ul id="contactsList">
+        <li>Email: support@medixgo.kz</li>
+        <li>Телефон: +7 771 643 00 37</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="Logo.png" alt="MedixGO Logo" />
+        <h3>Medix<span>GO</span></h3>
+      </div>
+      <div class="footer-bottom">
+        <p id="footerCopyright">© 2025 MedixGO. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Объект переводов
+    const translations = {
+      ru: {
+        backButtonText: "Назад на главную",
+        policyTitle: "Политика конфиденциальности",
+        lastUpdated: "Последнее обновление: 1 марта 2024 г.",
+        introTitle: "1. Введение",
+        introText: "MedixGO уважает вашу конфиденциальность и стремится защитить ваши персональные данные. Эта политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу информацию.",
+        dataCollectionTitle: "2. Сбор информации",
+        dataCollectionIntro: "Мы собираем следующие типы информации:",
+        dataCollectionList: [
+          "Персональные данные (имя, контактная информация)",
+          "Медицинская информация, необходимая для оказания услуг",
+          "Информация об устройстве и использовании приложения"
+        ],
+        dataUsageTitle: "3. Использование информации",
+        dataUsageIntro: "Мы используем собранную информацию для:",
+        dataUsageList: [
+          "Предоставления медицинских услуг",
+          "Улучшения работы приложения",
+          "Связи с вами по вопросам обслуживания",
+          "Обеспечения безопасности"
+        ],
+        dataProtectionTitle: "4. Защита данных",
+        dataProtectionIntro: "Мы применяем современные методы защиты для сохранения ваших данных в безопасности, включая:",
+        dataProtectionList: [
+          "Шифрование данных",
+          "Регулярное обновление систем безопасности",
+          "Ограниченный доступ к персональным данным"
+        ],
+        userRightsTitle: "5. Права пользователей",
+        userRightsIntro: "Вы имеете право:",
+        userRightsList: [
+          "Получить доступ к своим данным",
+          "Исправить неточные данные",
+          "Удалить свои данные",
+          "Отозвать согласие на обработку данных"
+        ],
+        contactsTitle: "6. Контакты",
+        contactsIntro: "По вопросам конфиденциальности обращайтесь:",
+        contactsList: [
+          "Email: support@medixgo.kz",
+          "Телефон: +7 771 643 00 37"
+        ],
+        footerCopyright: "© 2025 MedixGO. Все права защищены."
+      },
+      kz: {
+        backButtonText: "Басты бетке оралу",
+        policyTitle: "Құпиялық саясаты",
+        lastUpdated: "Соңғы жаңарту: 1 наурыз 2024 ж.",
+        introTitle: "1. Кіріспе",
+        introText: "MedixGO сіздің құпиялылығыңызды құрметтейді және жеке деректеріңізді қорғауға ұмтылады. Бұл құпиялылық саясаты біз сіздің ақпаратыңызды қалай жинайтынымыз, қолданатынымыз және қорғайтынымызды түсіндіреді.",
+        dataCollectionTitle: "2. Ақпарат жинау",
+        dataCollectionIntro: "Біз келесі түрдегі ақпаратты жинаймыз:",
+        dataCollectionList: [
+          "Жеке деректер (аты-жөні, байланыс ақпараты)",
+          "Қызмет көрсету үшін қажетті медициналық ақпарат",
+          "Құрылғы және қосымшаны пайдалану туралы ақпарат"
+        ],
+        dataUsageTitle: "3. Ақпаратты қолдану",
+        dataUsageIntro: "Біз жиналған ақпаратты келесі мақсаттарда қолданамыз:",
+        dataUsageList: [
+          "Медициналық қызметтерді көрсету",
+          "Қосымшаның жұмысын жақсарту",
+          "Қызмет көрсету мәселелері бойынша сізбен байланысу",
+          "Қауіпсіздікті қамтамасыз ету"
+        ],
+        dataProtectionTitle: "4. Деректерді қорғау",
+        dataProtectionIntro: "Біз деректеріңізді қауіпсіз сақтау үшін заманауи қорғау әдістерін қолданамыз, оларға мыналар жатады:",
+        dataProtectionList: [
+          "Деректерді шифрлау",
+          "Қауіпсіздік жүйелерін үнемі жаңарту",
+          "Жеке деректерге шектеулі қол жетімділік"
+        ],
+        userRightsTitle: "5. Пайдаланушы құқықтары",
+        userRightsIntro: "Сізде келесі құқықтар бар:",
+        userRightsList: [
+          "Өз деректеріңізге қол жетімділік алу",
+          "Дұрыс емес деректерді түзету",
+          "Деректерді жою",
+          "Деректерді өңдеуге келісімін кері қайтару"
+        ],
+        contactsTitle: "6. Байланыстар",
+        contactsIntro: "Құпиялылық мәселелері бойынша кері байланыс:",
+        contactsList: [
+          "Email: support@medixgo.kz",
+          "Телефон: +7 771 643 00 37"
+        ],
+        footerCopyright: "© 2025 MedixGO. Барлық құқықтар қорғалған."
+      },
+      en: {
+        backButtonText: "Back to Home",
+        policyTitle: "Privacy Policy",
+        lastUpdated: "Last updated: March 1, 2024",
+        introTitle: "1. Introduction",
+        introText: "MedixGO respects your privacy and strives to protect your personal data. This privacy policy explains how we collect, use, and protect your information.",
+        dataCollectionTitle: "2. Information Collection",
+        dataCollectionIntro: "We collect the following types of information:",
+        dataCollectionList: [
+          "Personal data (name, contact information)",
+          "Medical information necessary for service provision",
+          "Device and application usage information"
+        ],
+        dataUsageTitle: "3. Information Usage",
+        dataUsageIntro: "We use the collected information for:",
+        dataUsageList: [
+          "Providing medical services",
+          "Improving application functionality",
+          "Communicating with you about service issues",
+          "Ensuring security"
+        ],
+        dataProtectionTitle: "4. Data Protection",
+        dataProtectionIntro: "We apply modern protection methods to keep your data secure, including:",
+        dataProtectionList: [
+          "Data encryption",
+          "Regular security system updates",
+          "Limited access to personal data"
+        ],
+        userRightsTitle: "5. User Rights",
+        userRightsIntro: "You have the right to:",
+        userRightsList: [
+          "Access your data",
+          "Correct inaccurate data",
+          "Delete your data",
+          "Withdraw consent for data processing"
+        ],
+        contactsTitle: "6. Contacts",
+        contactsIntro: "For privacy-related inquiries, please contact:",
+        contactsList: [
+          "Email: support@medixgo.kz",
+          "Phone: +7 771 643 00 37"
+        ],
+        footerCopyright: "© 2025 MedixGO. All rights reserved."
+      }
+    };
+
+    // Функция для изменения языка
+    function changeLang(lang) {
+      // Сохраняем выбранный язык в localStorage
+      localStorage.setItem('preferredLang', lang);
+      
+      // Устанавливаем язык документа
+      document.documentElement.lang = lang;
+      
+      // Обновляем заголовок страницы
+      document.title = `MedixGO - ${translations[lang].policyTitle}`;
+      
+      // Снимаем класс active со всех кнопок
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      // Активируем кнопку выбранного языка
+      const activeBtn = document.querySelector(`.lang-btn[onclick="changeLang('${lang}')"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      // Обновляем текст кнопки "Назад"
+      document.getElementById('backButtonText').textContent = translations[lang].backButtonText;
+      
+      // Обновляем заголовок политики
+      document.getElementById('policyTitle').textContent = translations[lang].policyTitle;
+      
+      // Обновляем дату последнего обновления
+      document.getElementById('lastUpdated').textContent = translations[lang].lastUpdated;
+      
+      // Обновляем раздел "Введение"
+      document.getElementById('introTitle').textContent = translations[lang].introTitle;
+      document.getElementById('introText').textContent = translations[lang].introText;
+      
+      // Обновляем раздел "Сбор информации"
+      document.getElementById('dataCollectionTitle').textContent = translations[lang].dataCollectionTitle;
+      document.getElementById('dataCollectionIntro').textContent = translations[lang].dataCollectionIntro;
+      updateList('dataCollectionList', translations[lang].dataCollectionList);
+      
+      // Обновляем раздел "Использование информации"
+      document.getElementById('dataUsageTitle').textContent = translations[lang].dataUsageTitle;
+      document.getElementById('dataUsageIntro').textContent = translations[lang].dataUsageIntro;
+      updateList('dataUsageList', translations[lang].dataUsageList);
+      
+      // Обновляем раздел "Защита данных"
+      document.getElementById('dataProtectionTitle').textContent = translations[lang].dataProtectionTitle;
+      document.getElementById('dataProtectionIntro').textContent = translations[lang].dataProtectionIntro;
+      updateList('dataProtectionList', translations[lang].dataProtectionList);
+      
+      // Обновляем раздел "Права пользователей"
+      document.getElementById('userRightsTitle').textContent = translations[lang].userRightsTitle;
+      document.getElementById('userRightsIntro').textContent = translations[lang].userRightsIntro;
+      updateList('userRightsList', translations[lang].userRightsList);
+      
+      // Обновляем раздел "Контакты"
+      document.getElementById('contactsTitle').textContent = translations[lang].contactsTitle;
+      document.getElementById('contactsIntro').textContent = translations[lang].contactsIntro;
+      updateList('contactsList', translations[lang].contactsList);
+      
+      // Обновляем копирайт в футере
+      document.getElementById('footerCopyright').textContent = translations[lang].footerCopyright;
+    }
+    
+    // Функция для обновления списков
+    function updateList(listId, items) {
+      const list = document.getElementById(listId);
+      list.innerHTML = '';
+      
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+    
+    // При загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+      // Проверяем, сохранён ли язык в localStorage
+      const savedLang = localStorage.getItem('preferredLang');
+      if (savedLang) {
+        // Если есть — применяем
+        changeLang(savedLang);
+      } else {
+        // Иначе по умолчанию русский
+        changeLang('ru');
+      }
+      
+      // Обработчик для кнопки "Назад"
+      document.getElementById('backButton').addEventListener('click', function(e) {
+        // Переход на главную страницу
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
