@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedixGO - Мобильное приложение для медицинской помощи на дому">
+  <meta name="keywords" content="медицинская помощь, медсестра, врач, домашний уход, MedixGO">
+  <title>MedixGO - Главная</title>
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/css/main.css" as="style">
+  <link rel="preload" href="assets/js/main.js" as="script">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="bg-dots"></div>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+
+  <!-- Header -->
+  <header id="site-header" class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <img src="assets/images/logo.png" alt="MedixGO Logo" id="logo" class="logo" width="120" height="40">
+        </div>
+        
+        <nav id="main-nav" class="main-nav">
+          <ul class="nav-links">
+            <li><a href="#home" id="navHome" class="nav-link"><i class="fas fa-home"></i> <span data-translate="navHome">Главная</span></a></li>
+            <li><a href="#goals" id="navGoals" class="nav-link"><i class="fas fa-bullseye"></i> <span data-translate="navGoals">Цели проекта</span></a></li>
+            <li><a href="#video" id="navVideo" class="nav-link"><i class="fas fa-play-circle"></i> <span data-translate="navVideo">Видео</span></a></li>
+            <li><a href="#contact" id="navContact" class="nav-link"><i class="fas fa-envelope"></i> <span data-translate="navContact">Контакты</span></a></li>
+          </ul>
+          
+          <div class="lang-switch">
+            <button class="lang-btn active" onclick="changeLang('ru')" data-lang="ru" aria-label="Switch to Russian">RUS</button>
+            <span class="lang-separator">|</span>
+            <button class="lang-btn" onclick="changeLang('kz')" data-lang="kz" aria-label="Switch to Kazakh">KAZ</button>
+            <span class="lang-separator">|</span>
+            <button class="lang-btn" onclick="changeLang('en')" data-lang="en" aria-label="Switch to English">ENG</button>
+          </div>
+        </nav>
+        
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <h1 class="hero-title">Medix<span>GO</span></h1>
+            <p id="mainParagraph" class="hero-text"></p>
+          </div>
+          
+          <div class="hero-image animated-float">
+            <img src="image1.png" alt="MedixGO App Screenshot" id="heroImage" class="hero-img" width="600" height="400">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Goals Section -->
+    <section id="goals" class="goals">
+      <div class="container">
+        <h2 id="projectGoalsTitle" class="section-title"></h2>
+        
+        <div class="goals-container">
+          <div class="goal-card">
+            <i class="fas fa-home-user" aria-hidden="true"></i>
+            <h3 id="goalTitle1" class="goal-title"></h3>
+            <p id="goal1" class="goal-text"></p>
+          </div>
+          
+          <div class="goal-card">
+            <i class="fas fa-hand-holding-medical" aria-hidden="true"></i>
+            <h3 id="goalTitle2" class="goal-title"></h3>
+            <p id="goal2" class="goal-text"></p>
+          </div>
+          
+          <div class="goal-card">
+            <i class="fas fa-magnifying-glass-dollar" aria-hidden="true"></i>
+            <h3 id="goalTitle3" class="goal-title"></h3>
+            <p id="goal3" class="goal-text"></p>
+          </div>
+          
+          <div class="goal-card">
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <h3 id="goalTitle4" class="goal-title"></h3>
+            <p id="goal4" class="goal-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+      <div class="container">
+        <h2 id="videoTitle" class="section-title"></h2>
+        
+        <div class="video-container">
+          <div class="video-player">
+            <iframe
+              id="videoFrame"
+              class="video-iframe"
+              width="100%"
+              height="100%"
+              src=""
+              title="MedixGO Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+            <div class="video-progress">
+              <div class="progress-bar" id="videoProgress"></div>
+            </div>
+          </div>
+
+          <div class="video-features">
+            <div class="feature-text fade-text visible">
+              <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+              <strong id="featureTitle1" class="feature-title"></strong>
+              <span id="featureDesc1" class="feature-desc"></span>
+            </div>
+
+            <div class="feature-text fade-text visible">
+              <i class="fas fa-user-md" aria-hidden="true"></i>
+              <strong id="featureTitle2" class="feature-title"></strong>
+              <span id="featureDesc2" class="feature-desc"></span>
+            </div>
+
+            <div class="feature-text fade-text visible">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <strong id="featureTitle3" class="feature-title"></strong>
+              <span id="featureDesc3" class="feature-desc"></span>
+            </div>
+
+            <div class="feature-text fade-text visible">
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+              <strong id="featureTitle4" class="feature-title"></strong>
+              <span id="featureDesc4" class="feature-desc"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Survey Section -->
+    <section id="survey" class="survey-section">
+      <div class="container">
+        <h2 id="surveyTitle" class="section-title" data-translate="surveyTitle"></h2>
+        <p id="surveyText" class="survey-text" data-translate="surveyText"></p>
+        
+        <div class="survey-button-container">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGyEHGmFfK4bBWyRhy97jt0-jlhhS-7FzjOBAIdp2k8RIhag/viewform" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="survey-button" 
+             id="showSurveyBtn" 
+             data-translate-title="surveyButtonTitle">
+            <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+            <span data-translate="surveyButtonText"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 id="contactTitle" class="section-title" data-translate="contactTitle"></h2>
+        <p id="contactText" class="contact-text" data-translate="contactText"></p>
+        
+        <div class="contacts-container">
+          <div class="contact-item">
+            <a href="mailto:support@medixgo.kz" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+            <span data-translate="email"></span>
+          </div>
+
+          <div class="contact-item">
+            <a href="https://wa.me/77716430037" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <span data-translate="whatsapp"></span>
+          </div>
+
+          <div class="contact-item">
+            <a href="https://t.me/+77716430037" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+            </a>
+            <span data-translate="telegram"></span>
+          </div>
+
+          <div class="contact-item">
+            <a href="https://t.me/MedixGO_bot" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-robot" aria-hidden="true"></i>
+            </a>
+            <span data-translate="telegramBot"></span>
+          </div>
+
+          <div class="contact-item">
+            <a href="https://instagram.com/medixgo.kz" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <span data-translate="instagram"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="MedixGO Logo" class="footer-logo-img" width="120" height="40">
+            <h3 class="footer-logo-title">Medix<span>GO</span></h3>
+          </div>
+          <p id="footerAbout" class="footer-about"></p>
+          
+          <div class="footer-social">
+            <a href="https://instagram.com/medixgo.kz" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me/+77716430037" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/77716430037" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:support@medixgo.kz" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 id="footerLinks" class="footer-title"></h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="quickHome"></span></a></li>
+            <li><a href="#goals" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="quickGoals"></span></a></li>
+            <li><a href="#video" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="quickVideo"></span></a></li>
+            <li><a href="#contact" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="quickContact"></span></a></li>
+            <li><a href="politika.html" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="footerPolicy"></span></a></li>
+            <li><a href="licenziya.html" class="footer-link"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span id="footerLicense"></span></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 id="footerContactTitle" class="footer-title"></h4>
+          <ul class="footer-links">
+            <li>
+              <a href="#" class="footer-link">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span id="addressText"></span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+77716430037" class="footer-link">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <span>+7 771 643 00 37</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:support@medixgo.kz" class="footer-link">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span>support@medixgo.kz</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <span id="workTime"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p id="footerCopy" class="footer-copyright"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/translations.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html> 
