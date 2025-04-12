@@ -10,6 +10,9 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!-- Google Font: Nunito + Montserrat -->
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Montserrat:wght@500;700&display=swap"
@@ -49,7 +52,8 @@
     body {
       background-color: var(--background);
       color: var(--text-dark);
-      font-family: 'Nunito', sans-serif;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
       line-height: 1.6;
       position: relative;
       overflow-x: hidden;
@@ -141,7 +145,7 @@
     }
 
     #logo {
-      width: 120px;
+      width: 130px;
       height: auto;
       transition: transform 0.3s;
     }
@@ -232,6 +236,11 @@
       font-size: 1.5rem;
       cursor: pointer;
       color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle.active {
+      transform: rotate(90deg);
     }
 
     /* Основной контейнер */
@@ -467,7 +476,7 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: rgba(182, 108, 25, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       bottom: -100px;
       left: -100px;
     }
@@ -1096,6 +1105,7 @@
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: all 0.3s ease;
         opacity: 0;
+        z-index: 1000;
       }
       
       nav.active {
@@ -1106,6 +1116,18 @@
       .nav-links {
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
+      }
+      
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-links li a {
+        display: block;
+        padding: 10px 0;
+        font-size: 1.1rem;
       }
       
       .lang-switch {
@@ -1362,6 +1384,177 @@
       margin-right: 10px;
       font-size: 1.2rem;
     }
+
+    /* AstanaHub Section */
+    .astanahub-section {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      border-radius: 30px;
+      margin: 40px 0;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .astanahub-section:before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      top: -150px;
+      right: -150px;
+      z-index: 0;
+    }
+
+    .astanahub-section:after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      bottom: -100px;
+      left: -100px;
+      z-index: 0;
+    }
+
+    .astanahub-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .astanahub-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .astanahub-images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .astanahub-image {
+      width: 20rem;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+      margin-right: 40%;
+    }
+
+    .astanahub-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 114, 252, 0.764);
+    }
+
+    .startup-image {
+      width: 2 rem;
+      height: auto;
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+      margin-left: 1.5rem;
+    }
+
+    .startup-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Tablet Styles */
+    @media (max-width: 992px) {
+      .astanahub-section {
+        padding: 60px 0;
+      }
+
+      .astanahub-text {
+        font-size: 1.1rem;
+        padding: 0 20px;
+      }
+
+      .astanahub-image {
+        width: 15rem;
+        margin-right: 30%;
+      }
+
+      .startup-image {
+        width: 60%;
+        margin-left: 1rem;
+      }
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .astanahub-section {
+        padding: 40px 0;
+        margin: 20px 0;
+      }
+
+      .astanahub-container {
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .astanahub-text {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+
+      .astanahub-images {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .astanahub-image {
+        width: 12rem;
+        margin-right: 0;
+      }
+
+      .startup-image {
+        width: 50%;
+        margin-left: 0;
+      }
+    }
+
+    /* Small Mobile Styles */
+    @media (max-width: 480px) {
+      .astanahub-section {
+        padding: 30px 0;
+      }
+
+      .astanahub-text {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+
+      .astanahub-image {
+        width: 10rem;
+      }
+
+      .startup-image {
+        width: 40%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1501,23 +1694,18 @@
       </div>
     </section>
     
-    <!-- CTA блок загрузки приложения -->
-    <!--
-    <div class="cta-box" id="download">
-      <h3 id="ctaTitle">Начните пользоваться прямо сейчас</h3>
-      <p id="ctaText">Скачайте приложение MedixGO и получите доступ к квалифицированной медицинской помощи на дому в любое удобное для вас время.</p>
-      <div class="cta-buttons">
-        <a href="#" class="app-btn">
-          <i class="fab fa-google-play"></i>
-          <span>Google Play</span>
-        </a>
-        <a href="#" class="app-btn">
-          <i class="fab fa-apple"></i>
-          <span>App Store</span>
-        </a>
+    <!-- AstanaHub Section -->
+    <section id="astanahub" class="astanahub-section">
+      <div class="astanahub-container">
+        <p class="astanahub-text" id="astanahubText"></p>
+        <div class="astanahub-images">
+          <a href="https://astanahub.com/ru/" target="_blank" rel="noopener noreferrer">
+            <img src="astanahub.png" alt="AstanaHub" class="astanahub-image">
+          </a>
+          <img src="startup.png" alt="AstanaHub" class="startup-image">
+        </div>
       </div>
-    </div>
-    -->
+    </section>
 
     <!-- Контакты -->
     <section id="contact" class="contact-section">
@@ -1708,7 +1896,8 @@
         telegram: "Telegram",
         telegramBot: "Telegram Bot",
         instagram: "Instagram",
-        fillApplication: "Заполнить анкету"
+        fillApplication: "Заполнить анкету",
+        astanahubText: "Наша команда участвует в акселерационной программе Startup Garage, направленной на поддержку перспективных стартапов, где наш проект развивается под менторством экспертов."
       },
       kz: {
         navHome: "Басты бет",
@@ -1764,7 +1953,8 @@
         telegram: "Telegram",
         telegramBot: "Telegram Bot",
         instagram: "Instagram",
-        fillApplication: "Анкетаны толтыру"
+        fillApplication: "Анкетаны толтыру",
+        astanahubText: "Біздің команда перспективалы стартаптарды қолдауға бағытталған Startup Garage акселерациялық бағдарламасына қатысуда, онда біздің жобамыз сарапшылардың жетекшілігімен дамып келеді."
       },
       en: {
         navHome: "Home",
@@ -1819,7 +2009,8 @@ and also provides an opportunity for specialists to earn by working at a conveni
         telegram: "Telegram",
         telegramBot: "Telegram Bot",
         instagram: "Instagram",
-        fillApplication: "Fill Application"
+        fillApplication: "Fill Application",
+        astanahubText: "Our team participates in the Startup Garage accelerator program, aimed at supporting promising startups, where our project develops under the mentorship of experts."
       }
     };
 
@@ -1876,7 +2067,7 @@ and also provides an opportunity for specialists to earn by working at a conveni
           'featureTitle1', 'featureTitle2', 'featureTitle3', 'featureTitle4',
           'featureDesc1', 'featureDesc2', 'featureDesc3', 'featureDesc4',
           'email', 'whatsapp', 'telegram', 'telegramBot', 'instagram',
-          'fillApplication'
+          'fillApplication', 'astanahubText'
         ];
 
         // Проверяем наличие всех ключей
@@ -1935,6 +2126,7 @@ and also provides an opportunity for specialists to earn by working at a conveni
         updateElement('footerCopy', 'footerCopy');
         updateElement('surveyTitle', 'surveyTitle');
         updateElement('surveyText', 'surveyText');
+        updateElement('astanahubText', 'astanahubText');  // Add this line to update the AstanaHub text
 
         // Обновляем видео
         const videoFrame = document.getElementById('videoFrame');
@@ -2008,7 +2200,35 @@ and also provides an opportunity for specialists to earn by working at a conveni
           changeLang(lang);
         });
       });
+
+      // Mobile menu functionality
+      const menuToggle = document.getElementById('menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      const navLinks = document.querySelectorAll('.nav-links li a');
+
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+          mainNav.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a nav link
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+          }
+        });
+      }
     });
   </script>
 </body>
-</html>
+</html> 
